@@ -1,38 +1,27 @@
 <template>
   <div>
     <!-- use reduce() instead?-->
-    <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p> 
-    <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
+    <p>Completed Tasks: {{todos.filter(todo => {return todo.isDone === true}).length}}</p>
+    <p>Pending Tasks: {{todos.filter(todo => {return todo.isDone === false}).length}}</p>
 
-    <div class='ui centered card' v-for="todo in todos" :key="todo.id">
-      <div class='content'>
-        <div class='header'>
-          {{todo.title}}
-        </div>
-        <div class='meta'>
-          {{todo.project}}
-        </div>
-        <div class='extra content'>
-          <span class='right floated edit icon'>
-            <i class='edit icon '></i>
-          </span>
-        </div>
-      </div>
-
-      <div class='ui bottom attached green basic button' v-show="todo.done">
-        Completed
-      </div>
-      <div class='ui bottom attached red basic button' v-show="!todo.done">
-        Complete
-      </div>
-    </div>
+    <!--perhaps instead use something like...
+      <my-comp v-for="(item, index) in items" v-bind:item="item" v-bind:index="index"> </my-comp>
+      -->
+    <todo v-for="todo in todos" :key="todo.id" v-bind:todo="todo"></todo>
   </div>
 </template>
 
 <script type="text/javascript">
+
+import Todo from './Todo';
+
 export default {
   props: ['todos'],
+  components: {
+    Todo,
+  },
 };
+
 </script>
 
 <style>
