@@ -34,8 +34,8 @@ export default {
         isDone: false,
       }, {
         id: 3,
-        title: 'Todo C',
-        project: 'Project C',
+        title: 'Todo D',
+        project: 'Project D',
         isDone: false,
       }],
     };
