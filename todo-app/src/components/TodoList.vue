@@ -7,7 +7,7 @@
     <!--perhaps instead use something like...
       <my-comp v-for="(item, index) in items" v-bind:item="item" v-bind:index="index"> </my-comp>
       -->
-    <todo v-for="todo in todos" :key="todo.id" v-bind:todo="todo"></todo>
+    <todo v-on:delete-todo="deleteTodo" v-for="todo in todos" :key="todo.id" v-bind:todo="todo"></todo>
   </div>
 </template>
 
@@ -19,6 +19,12 @@ export default {
   props: ['todos'],
   components: {
     Todo,
+  },
+  methods: {
+    deleteTodo(todo) {
+      const todoIndex = this.todos.indexOf(todo);
+      this.todos.splice(todoIndex, 1);
+    },
   },
 };
 
