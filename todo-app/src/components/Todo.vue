@@ -35,10 +35,13 @@
           </div>
         </div>
       </div>
-      <div class='ui bottom attached green basic button' v-show="!isEditing && todo.isDone">
+      <div class='ui bottom attached green basic button'
+              v-show="!isEditing && todo.isDone">
         Completed
       </div>
-      <div class='ui bottom attached red basic button' v-show="!isEditing && !todo.isDone" v-on:click="completeTodo(todo)">
+      <div class='ui bottom attached red basic button'
+              v-show="!isEditing && !todo.isDone"
+              v-on:click="completeTodo(todo)">
         Pending
       </div>
     </div>

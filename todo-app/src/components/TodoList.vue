@@ -7,7 +7,11 @@
     <!--perhaps instead use something like...
       <my-comp v-for="(item, index) in items" v-bind:item="item" v-bind:index="index"> </my-comp>
       -->
-    <todo v-on:delete-todo="deleteTodo" v-on:complete-todo="completeTodo" v-for="todo in todos" :key="todo.id" v-bind:todo="todo"></todo>
+    <todo v-on:delete-todo="deleteTodo"
+          v-on:complete-todo="completeTodo"
+          v-for="todo in todos"
+              :key="todo.id"
+              :todo="todo"></todo>
   </div>
 </template>
 
